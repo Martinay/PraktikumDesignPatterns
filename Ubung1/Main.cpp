@@ -29,7 +29,7 @@ int main()
 
 
     term->Print();
-    cout << endl << "Lösun:g" << term->Calc();
+    cout << endl << "Lösung: " << term->Calc();
 
     int ab;
     cin >> ab;
