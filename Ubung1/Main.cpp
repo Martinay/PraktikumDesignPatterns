@@ -8,28 +8,30 @@ using namespace std;
 
 int main()
 {
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    int d = 4;
+
     Term *term = new Add(
         new Mul(
             new Add(
-                new Variable("a"),
-                new Variable("b")),
+                new Variable("a",a),
+                new Variable("b",b)),
             new Sub(
-                new Variable("a"),
-                new Variable("c"))),
+                new Variable("a",a),
+                new Variable("c",c))),
         new Sub(
             new Mul(
-                new Variable("b"),
-                new Variable("d")),
-            new Variable("a")));
-
-    // Term *term = new Variable("abc");
-    // Term *term1 = new Variable("abc");
-    // Term *term2 = new Add(term, term1);
+                new Variable("b",b),
+                new Variable("d",d)),
+            new Variable("a",a)));
 
 
     term->Print();
+    cout << endl << "Lösun:g" << term->Calc();
 
-    int a;
-    cin >> a;
+    int ab;
+    cin >> ab;
     return 0;
 }

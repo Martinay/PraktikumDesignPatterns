@@ -6,11 +6,13 @@
 class Variable : public Term
 {
     public:
-      Variable(string variable);
+      Variable(string variable, int zahl);
       void Print();
+      int Calc();
 
     private:
       string _variable;
+      int _zahl;
 };
 
 #endif

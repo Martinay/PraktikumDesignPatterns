@@ -13,3 +13,8 @@ void Mul::Print()
     _rechts->Print();
     cout << ")";
 }
+
+int Mul::Calc()
+{
+    return _links->Calc() * _rechts->Calc();
+}

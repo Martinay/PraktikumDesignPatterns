@@ -13,3 +13,8 @@ void Sub::Print()
     _rechts->Print();
     cout << ")";
 }
+
+int Sub::Calc()
+{
+    return _links->Calc() - _rechts->Calc();
+}

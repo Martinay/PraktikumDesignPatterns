@@ -13,3 +13,8 @@ void Add::Print()
     _rechts->Print();
     cout << ")";
 }
+
+int Add::Calc()
+{
+    return _links->Calc() + _rechts->Calc();
+}
