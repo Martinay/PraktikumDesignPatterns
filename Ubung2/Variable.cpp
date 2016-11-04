@@ -4,12 +4,7 @@ Variable::Variable(string variable, int zahl)
 : _variable(variable), _zahl(zahl)
 {}
 
-void Variable::Print()
+string Variable::GetValue()
 {
-    cout << _variable;
-}
-
-int Variable::Calc()
-{
-    return _zahl;
+    return _variable;
 }

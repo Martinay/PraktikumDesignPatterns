@@ -1,12 +1,9 @@
-#include "Term.h"
+#include "Operation.h"
 
-class Mul : public Term{
+class Mul : public Operation{
     public:
       Mul(Term* links, Term*rechts);
-      void Print();
-      int Calc();
+      string GetValue();
 
     private:
-      Term *_links;
-      Term *_rechts;
 };

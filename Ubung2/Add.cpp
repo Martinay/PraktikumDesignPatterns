@@ -1,20 +1,11 @@
 #include "Header/Add.h"
 
 Add::Add(Term* links, Term* rechts)
-:_links(links), _rechts(rechts)
+:Operation(links, rechts)
 {
 }
 
-void Add::Print()
+string Add::GetValue()
 {
-    cout << "(";
-    _links->Print();
-    cout << "+";
-    _rechts->Print();
-    cout << ")";
-}
-
-int Add::Calc()
-{
-    return _links->Calc() + _rechts->Calc();
+    return "+";
 }

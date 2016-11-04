@@ -3,6 +3,7 @@
 #include "Header/Sub.h"
 #include "Header/Mul.h"
 #include "Header/Variable.h"
+#include "Header/TermIterator.h"
 
 using namespace std;
 
@@ -27,9 +28,16 @@ int main()
                 new Variable("d",d)),
             new Variable("a",a)));
 
+    TermIterator iterator = TermIterator(term);
 
-    term->Print();
-    cout << endl << "Lösung: " << term->Calc();
+    iterator.First();
+    while(!iterator.IsDone())
+    {
+        iterator.Next();
+        Term* item = iterator.CurrentItem();
+        
+        cout << item->GetValue();
+    }
 
     int ab;
     cin >> ab;

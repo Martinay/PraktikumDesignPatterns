@@ -7,8 +7,7 @@ class Variable : public Term
 {
     public:
       Variable(string variable, int zahl);
-      void Print();
-      int Calc();
+      string GetValue();
 
     private:
       string _variable;

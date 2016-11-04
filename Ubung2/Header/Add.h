@@ -1,17 +1,14 @@
 #ifndef ADD_H
 #define ADD_H
 
-#include "Term.h"
+#include "Operation.h"
 
-class Add : public Term{
+class Add : public Operation{
     public:
-      Add(Term* links, Term*rechts);
-      void Print();
-      int Calc();
+      Add(Term* links, Term* rechts);
+      string GetValue();
 
     private:
-      Term *_links;
-      Term *_rechts;
 };
 
 #endif

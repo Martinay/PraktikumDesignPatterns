@@ -2,13 +2,16 @@
 #define TERM_H
 
 #include <iostream>
+#include <string>
+//#include "TermIterator.h"
 
 using namespace std;
 
 class Term{
     public:
-      virtual void Print() = 0;
-      virtual int Calc() = 0;
+      Term *GetTerm(){return this;};
+      virtual string GetValue() = 0;
+      //TermIterator GetIterator(){return TermIterator(this);};
 };
 
 #endif

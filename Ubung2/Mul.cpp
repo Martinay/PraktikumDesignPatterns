@@ -1,20 +1,11 @@
 #include "Header/Mul.h"
 
 Mul::Mul(Term* links, Term* rechts)
-:_links(links), _rechts(rechts)
+:Operation(links, rechts)
 {
 }
 
-void Mul::Print()
+string Mul::GetValue()
 {
-    cout << "(";
-    _links->Print();
-    cout << "*";
-    _rechts->Print();
-    cout << ")";
-}
-
-int Mul::Calc()
-{
-    return _links->Calc() * _rechts->Calc();
+    return "*";
 }

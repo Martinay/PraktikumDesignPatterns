@@ -1,11 +1,9 @@
-#include "Term.h"
+#include "Operation.h"
 
-class Sub : public Term{
+class Sub : public Operation{
     public:
       Sub(Term* links, Term*rechts);
-      void Print();
-      int Calc();
+      string GetValue();
+
     private:
-      Term *_links;
-      Term *_rechts;
 };
