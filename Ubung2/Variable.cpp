@@ -8,3 +8,7 @@ string Variable::GetValue()
 {
     return _variable;
 }
+
+int Variable::Calculate(int links, int rechts){
+    return _zahl;
+}

@@ -9,3 +9,7 @@ string Mul::GetValue()
 {
     return "*";
 }
+
+int Mul::Calculate(int links, int rechts){
+    return links * rechts;
+}

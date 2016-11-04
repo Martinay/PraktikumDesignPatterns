@@ -3,7 +3,8 @@
 #include "Header/Sub.h"
 #include "Header/Mul.h"
 #include "Header/Variable.h"
-#include "Header/TermIterator.h"
+#include "Header/PrintIterator.h"
+#include "Header/EvaluateIterator.h"
 
 using namespace std;
 
@@ -28,16 +29,15 @@ int main()
                 new Variable("d",d)),
             new Variable("a",a)));
 
-    TermIterator iterator = TermIterator(term);
+    // Term *term = new Add(new Variable("a", a), new Variable("b", b));
 
-    iterator.First();
-    while(!iterator.IsDone())
-    {
-        iterator.Next();
-        Term* item = iterator.CurrentItem();
-        
-        cout << item->GetValue();
-    }
+    PrintIterator piterator = PrintIterator();
+
+    piterator.Traverse(term);
+
+    EvaluateIterator eiterator = EvaluateIterator();
+
+    cout << endl << "Lösung: " << eiterator.Traverse(term);
 
     int ab;
     cin >> ab;

@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-//#include "TermIterator.h"
 
 using namespace std;
 
@@ -11,7 +10,9 @@ class Term{
     public:
       Term *GetTerm(){return this;};
       virtual string GetValue() = 0;
-      //TermIterator GetIterator(){return TermIterator(this);};
+      virtual Term *GetLinks(){return NULL;};
+      virtual Term *GetRechts(){return NULL;};
+      virtual int Calculate(int links, int rechts) = 0;
 };
 
 #endif

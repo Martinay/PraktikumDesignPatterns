@@ -6,20 +6,12 @@
 #include <stack>
 using namespace std;
 
-class TermIterator
+class TermIterator 
 {
     public:
-      TermIterator(Term *term);
-      void First();
-      void Next();
-      bool IsDone();
-      Term *CurrentItem();
+      virtual int Traverse(Term *term) = 0;
 
     private:
-      Term *_first;
-      Term *_current;
-      Term *_currentReturnValue;
-      stack<Term *> *_stack;
 };
 
 #endif

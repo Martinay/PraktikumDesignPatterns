@@ -9,3 +9,7 @@ string Add::GetValue()
 {
     return "+";
 }
+
+int Add::Calculate(int links, int rechts){
+    return links + rechts;
+}

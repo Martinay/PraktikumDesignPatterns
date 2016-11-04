@@ -9,3 +9,7 @@ string Sub::GetValue()
 {
     return "-";
 }
+
+int Sub::Calculate(int links, int rechts){
+    return links - rechts;
+}
