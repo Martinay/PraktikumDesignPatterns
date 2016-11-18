@@ -10,9 +10,9 @@ class Iterator
 {
     public:
       Iterator(Visitor* visitor);
-      void Traverse(Term *term);
+      virtual void Traverse(Term *term) = 0;
 
-    private:
+    protected:
       Visitor *_visitor;
 };
 

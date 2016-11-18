@@ -2,9 +2,11 @@
 #include "Header/Add.h"
 #include "Header/Sub.h"
 #include "Header/Mul.h"
-#include "Header/Iterator.h"
+#include "Header/InorderIterator.h"
+#include "Header/PostorderIterator.h"
 #include "Header/Variable.h"
 #include "Header/PrintVisitor.h"
+#include "Header/EvaluateVisitor.h"
 
 using namespace std;
 
@@ -29,14 +31,16 @@ int main()
                 new Variable("d",d)),
             new Variable("a",a)));
 
-    // Term *term = new Add(new Variable("a", a), new Variable("b", b));
-
     Visitor* v = new PrintVisitor();
-    Iterator iterator = Iterator(v);
+    InorderIterator iterator = InorderIterator(v);
 
     iterator.Traverse(term);
 
-    //EvaluateIterator eiterator = EvaluateIterator();
+    EvaluateVisitor *evaluateVisitor = new EvaluateVisitor();
+    PostorderIterator eiterator = PostorderIterator(evaluateVisitor);
+    eiterator.Traverse(term);
+
+    cout << endl << "Lösung: " << evaluateVisitor->GetResult();
 
     int ab;
     cin >> ab;
