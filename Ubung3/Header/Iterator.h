@@ -10,6 +10,7 @@ class Iterator
 {
     public:
       Iterator(Visitor* visitor);
+      ~Iterator();
       virtual void Traverse(Term *term) = 0;
 
     protected:

@@ -31,8 +31,7 @@ int main()
                 new Variable("d",d)),
             new Variable("a",a)));
 
-    Visitor* v = new PrintVisitor();
-    InorderIterator iterator = InorderIterator(v);
+    InorderIterator iterator = InorderIterator(new PrintVisitor());
 
     iterator.Traverse(term);
 
