@@ -6,6 +6,7 @@ using namespace std;
 
 class PrintVisitor : public Visitor{
     public:
+      PrintVisitor();
       void VisitSub(Sub *term);
       void VisitMul(Mul *term);
       void VisitAdd(Add *term);
