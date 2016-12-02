@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 #include "Header/Add.h"
 #include "Header/Sub.h"
 #include "Header/Mul.h"
@@ -38,17 +39,14 @@ int main()
     polinischIterator->Traverse(term);
 
     Visitor* normalPrintVisitor = new NormalPrintVisitor();
-    cout << endl << "IN:   ";
     Iterator * normalIterator = normalPrintVisitor->CreateIterator();
+    cout << endl << "IN:   ";
     normalIterator->Traverse(term);
 
     EvaluateVisitor *evaluateVisitor = new EvaluateVisitor();
     Iterator * evaluateIterator = evaluateVisitor->CreateIterator();
     evaluateIterator->Traverse(term);
-
     cout << endl << "Lösung: " << evaluateVisitor->GetResult();
 
-    int ab;
-    cin >> ab;
-    return 0;
+    getchar();
 }
