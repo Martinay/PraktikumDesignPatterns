@@ -10,11 +10,11 @@ void Visitor::SetState(int state){
 }
 
 Iterator* Visitor::CreateIterator(string option){
-    if(option == "post")
+    if(option == "evaluate")
         return new PostorderIterator(this);
-    if(option == "pre")
+    if(option == "polishPrint")
         return new PreorderIterator(this);
-    if(option == "in")
+    if(option == "normalPrint")
         return new InorderIterator(this);
     return NULL;
 }

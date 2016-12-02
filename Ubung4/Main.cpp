@@ -34,15 +34,15 @@ int main()
     PrintVisitor* printVisitor = new PrintVisitor();
 
     cout << "PRE:   ";
-    Iterator *polinischIterator = printVisitor->CreateIterator("pre");
+    Iterator *polinischIterator = printVisitor->CreateIterator("polishPrint");
     polinischIterator->Traverse(term);
 
     cout << endl << "IN:   ";
-    Iterator *normalIterator = printVisitor->CreateIterator("in");
+    Iterator *normalIterator = printVisitor->CreateIterator("normalPrint");
     normalIterator->Traverse(term);
-    
+
     EvaluateVisitor *evaluateVisitor = new EvaluateVisitor();
-    Iterator* evaluateIterator = evaluateVisitor->CreateIterator("post");
+    Iterator* evaluateIterator = evaluateVisitor->CreateIterator("evaluate");
     evaluateIterator->Traverse(term);
 
     cout << endl << "Lösung: " << evaluateVisitor->GetResult();
