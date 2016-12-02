@@ -5,7 +5,8 @@
 #include "Header/InorderIterator.h"
 #include "Header/PostorderIterator.h"
 #include "Header/Variable.h"
-#include "Header/PrintVisitor.h"
+#include "Header/NormalPrintVisitor.h"
+#include "Header/PolishPrintVisitor.h"
 #include "Header/EvaluateVisitor.h"
 
 using namespace std;
@@ -31,18 +32,18 @@ int main()
                 new Variable("d",d)),
             new Variable("a",a)));
 
-    PrintVisitor* printVisitor = new PrintVisitor();
-
+    Visitor* polishPrintVisitor = new PolishPrintVisitor();
+    Iterator * polinischIterator = polishPrintVisitor->CreateIterator();
     cout << "PRE:   ";
-    Iterator *polinischIterator = printVisitor->CreateIterator("polishPrint");
     polinischIterator->Traverse(term);
 
+    Visitor* normalPrintVisitor = new NormalPrintVisitor();
     cout << endl << "IN:   ";
-    Iterator *normalIterator = printVisitor->CreateIterator("normalPrint");
+    Iterator * normalIterator = normalPrintVisitor->CreateIterator();
     normalIterator->Traverse(term);
 
     EvaluateVisitor *evaluateVisitor = new EvaluateVisitor();
-    Iterator* evaluateIterator = evaluateVisitor->CreateIterator("evaluate");
+    Iterator * evaluateIterator = evaluateVisitor->CreateIterator();
     evaluateIterator->Traverse(term);
 
     cout << endl << "Lösung: " << evaluateVisitor->GetResult();

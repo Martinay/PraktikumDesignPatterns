@@ -17,6 +17,7 @@ void PrintVisitor::VisitSub(Sub *term){
             break;
     }
 }
+
 void PrintVisitor::VisitMul(Mul *term){
      switch(_state){
         case 1:
@@ -30,6 +31,7 @@ void PrintVisitor::VisitMul(Mul *term){
             break;
     }
 }
+
 void PrintVisitor::VisitAdd(Add *term){
      switch(_state){
         case 1:
@@ -43,6 +45,7 @@ void PrintVisitor::VisitAdd(Add *term){
             break;
     }
 }
+
 void PrintVisitor::VisitVariable(Variable *term){
     cout << term->GetVariable();
 }

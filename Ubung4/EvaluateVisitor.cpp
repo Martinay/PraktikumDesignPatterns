@@ -1,4 +1,5 @@
 #include "Header/EvaluateVisitor.h"
+#include "Header/PostorderIterator.h"
 #include "Header/Variable.h"
 
 
@@ -33,4 +34,8 @@ void EvaluateVisitor::VisitAdd(Add *term){
 }
 void EvaluateVisitor::VisitVariable(Variable *term){
     _stack.push(term->GetZahl());
+}
+
+Iterator * EvaluateVisitor::CreateIterator() {
+    return new PostorderIterator(this);
 }

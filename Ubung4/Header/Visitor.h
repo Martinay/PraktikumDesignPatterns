@@ -11,11 +11,11 @@ class Variable;
 
 using namespace std;
 
-class Visitor{
+class Visitor {
     public:
       Visitor();
       void SetState(int state);
-      Iterator* CreateIterator(string option);
+      virtual Iterator* CreateIterator() = 0;
       virtual void VisitSub(Sub *term) = 0;
       virtual void VisitMul(Mul *term) = 0;
       virtual void VisitAdd(Add *term) = 0;

@@ -14,7 +14,7 @@ class EvaluateVisitor : public Visitor{
       void VisitAdd(Add *term);
       void VisitVariable(Variable *term);
       int GetResult();
-
+      Iterator * CreateIterator();
     private:
       stack<int> _stack;
 };
