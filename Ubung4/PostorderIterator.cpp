@@ -2,6 +2,7 @@
 
 PostorderIterator::PostorderIterator(Visitor* visitor)
 : Iterator(visitor){
+
 }
 
 void PostorderIterator::Traverse(Term* term)
