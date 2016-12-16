@@ -50,11 +50,11 @@ void PrintVisitor::VisitVariable(Variable *term){
     cout << term->GetVariable();
 }
 
-void EvaluateVisitor::VisitConst(Const *term){
-    _stack.push(term->GetConst());
+void PrintVisitor::VisitConst(Const *term){
+    // _stack.push(term->GetConst());
 }
 
-void EvaluateVisitor::VisitAssign(Assign *term){
+void PrintVisitor::VisitAssign(Assign *term){
     // int rechts = _stack.top();
     // _stack.pop();
     // int links = _stack.top();
@@ -62,7 +62,7 @@ void EvaluateVisitor::VisitAssign(Assign *term){
     // _stack.push(links + rechts);
 }
 
-void EvaluateVisitor::VisitLess(Less *term){
+void PrintVisitor::VisitLess(Less *term){
     // int rechts = _stack.top();
     // _stack.pop();
     // int links = _stack.top();
@@ -70,7 +70,7 @@ void EvaluateVisitor::VisitLess(Less *term){
     // _stack.push(links + rechts);
 }
 
-void EvaluateVisitor::VisitIf(If *term){
+void PrintVisitor::VisitIf(If *term){
     // int rechts = _stack.top();
     // _stack.pop();
     // int links = _stack.top();

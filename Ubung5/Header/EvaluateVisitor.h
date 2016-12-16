@@ -13,6 +13,10 @@ class EvaluateVisitor : public Visitor{
       void VisitMul(Mul *term);
       void VisitAdd(Add *term);
       void VisitVariable(Variable *term);
+      virtual void VisitIf(If *term);
+      virtual void VisitConst(Const *term);
+      virtual void VisitAssign(Assign *term);
+      virtual void VisitLess(Less *term);
       int GetResult();
       Iterator * CreateIterator();
     private:

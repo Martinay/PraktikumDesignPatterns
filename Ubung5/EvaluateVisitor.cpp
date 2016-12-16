@@ -40,7 +40,7 @@ void EvaluateVisitor::VisitVariable(Variable *term){
 }
 
 void EvaluateVisitor::VisitConst(Const *term){
-    _stack.push(term->GetConst());
+    // _stack.push(term->GetConst());
 }
 
 void EvaluateVisitor::VisitAssign(Assign *term){
