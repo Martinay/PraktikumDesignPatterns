@@ -8,5 +8,8 @@ mkdir -p out
 # ./Ubung3/build.sh
 # echo "build Ubung 3 finished"
 
-./Ubung4/build.sh
-echo "build Ubung 4 finished"
+#./Ubung4/build.sh
+#echo "build Ubung 4 finished"
+
+./Ubung5/build.sh
+echo "build Ubung 5 finished"
