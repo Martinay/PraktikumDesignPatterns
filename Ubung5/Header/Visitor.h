@@ -19,6 +19,7 @@ class Visitor {
     public:
       Visitor();
       void SetState(int state);
+      virtual bool GetExecuteRight() { return true; }
       virtual Iterator* CreateIterator() = 0;
       virtual void VisitSub(Sub *term) = 0;
       virtual void VisitMul(Mul *term) = 0;

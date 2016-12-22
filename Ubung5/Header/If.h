@@ -1,19 +1,13 @@
 #ifndef IF_H
 #define IF_H
 
-#include "Term.h"
+#include "Operation.h"
 
-class If : public Term{
+class If : public Operation {
     public:
-      If(Term *bedingung, Term *term);
-      ~If();
-      Term *GetBedingung();
-      Term *GetTerm();   
+      If(Term *links, Term *rechts);
       void Accept(Visitor* visitor);
-
     private:
-      Term *_bedingung;
-      Term *_term;
 };
 
 #endif

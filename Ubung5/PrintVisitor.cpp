@@ -1,5 +1,6 @@
 #include "Header/PrintVisitor.h"
 #include "Header/Variable.h"
+#include "Header/Const.h"
 
 PrintVisitor::PrintVisitor()
 :Visitor(){}
@@ -51,29 +52,45 @@ void PrintVisitor::VisitVariable(Variable *term){
 }
 
 void PrintVisitor::VisitConst(Const *term){
-    // _stack.push(term->GetConst());
+    cout << term->GetConst();
 }
 
 void PrintVisitor::VisitAssign(Assign *term){
-    // int rechts = _stack.top();
-    // _stack.pop();
-    // int links = _stack.top();
-    // _stack.pop();
-    // _stack.push(links + rechts);
+    switch(_state){
+        case 1:
+            break;
+        case 2:
+            cout << "=";
+            break;
+        case 3:
+            break;
+    }
 }
 
 void PrintVisitor::VisitLess(Less *term){
-    // int rechts = _stack.top();
-    // _stack.pop();
-    // int links = _stack.top();
-    // _stack.pop();
-    // _stack.push(links + rechts);
+    switch(_state){
+        case 1:
+            cout << "(";
+            break;
+        case 2:
+            cout << "<";
+            break;
+        case 3:
+            cout << ")";
+            break;
+    }
 }
 
 void PrintVisitor::VisitIf(If *term){
-    // int rechts = _stack.top();
-    // _stack.pop();
-    // int links = _stack.top();
-    // _stack.pop();
-    // _stack.push(links + rechts);
+    switch(_state){
+        case 1:
+            cout << "If ";
+            break;
+        case 2:
+            cout << " ";
+            break;
+        case 3:
+            cout << " ";
+            break;
+    }
 }

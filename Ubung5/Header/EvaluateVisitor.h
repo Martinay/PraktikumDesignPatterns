@@ -18,7 +18,10 @@ class EvaluateVisitor : public Visitor{
       virtual void VisitAssign(Assign *term);
       virtual void VisitLess(Less *term);
       int GetResult();
-      Iterator * CreateIterator();
+      bool GetExecuteRight();
+      Iterator *CreateIterator();
+
     private:
       stack<int> _stack;
+      bool _executeRight;
 };

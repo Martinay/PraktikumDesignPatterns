@@ -9,34 +9,42 @@
 #include "Header/NormalPrintVisitor.h"
 #include "Header/PolishPrintVisitor.h"
 #include "Header/EvaluateVisitor.h"
+#include "Header/Const.h"
+#include "Header/Less.h"
+#include "Header/If.h"
+#include "Header/Assign.h"
 
 using namespace std;
 
 int main()
 {
-    int a = 1;
-    int b = 2;
-    int c = 3;
-    int d = 4;
+    Variable * a = new Variable("a", 1);
+    Variable * b = new Variable("b", 2);
+    Variable * c = new Variable("c", 3);
+    Variable * d = new Variable("d", 4);
+    Variable * x = new Variable("x", -5);
 
-    Term *term = new Add(
+    Term *termCalc = new Add(
         new Mul(
-            new Add(
-                new Variable("a",a),
-                new Variable("b",b)),
-            new Sub(
-                new Variable("a",a),
-                new Variable("c",c))),
+            new Add(a, b),
+            new Sub(a, c)
+        ),
         new Sub(
-            new Mul(
-                new Variable("b",b),
-                new Variable("d",d)),
-            new Variable("a",a)));
+            new Mul(b, d),
+            a
+        )
+    );
 
-    Visitor* polishPrintVisitor = new PolishPrintVisitor();
-    Iterator * polinischIterator = polishPrintVisitor->CreateIterator();
-    cout << "PRE:   ";
-    polinischIterator->Traverse(term);
+    Term *assign = new Assign(x, termCalc);
+    Term *term = new If(
+        new Less(x, new Const(0)),
+        assign);
+    
+
+    // Visitor *polishPrintVisitor = new PolishPrintVisitor();
+    // Iterator * polinischIterator = polishPrintVisitor->CreateIterator();
+    // cout << "PRE:   ";
+    // polinischIterator->Traverse(term);
 
     Visitor* normalPrintVisitor = new NormalPrintVisitor();
     Iterator * normalIterator = normalPrintVisitor->CreateIterator();
@@ -46,7 +54,7 @@ int main()
     EvaluateVisitor *evaluateVisitor = new EvaluateVisitor();
     Iterator * evaluateIterator = evaluateVisitor->CreateIterator();
     evaluateIterator->Traverse(term);
-    cout << endl << "Lösung: " << evaluateVisitor->GetResult();
+    cout << endl << "Lösung: " << x->GetZahl();
 
     getchar();
 }
