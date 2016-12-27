@@ -7,7 +7,6 @@
 #include "Header/PostorderIterator.h"
 #include "Header/Variable.h"
 #include "Header/NormalPrintVisitor.h"
-#include "Header/PolishPrintVisitor.h"
 #include "Header/EvaluateVisitor.h"
 #include "Header/Const.h"
 #include "Header/Less.h"
@@ -22,7 +21,7 @@ int main()
     Variable * b = new Variable("b", 2);
     Variable * c = new Variable("c", 3);
     Variable * d = new Variable("d", 4);
-    Variable * x = new Variable("x", -5);
+    Variable * x = new Variable("x", 2);
 
     Term *termCalc = new Add(
         new Mul(
@@ -40,12 +39,6 @@ int main()
         new Less(x, new Const(0)),
         assign);
     
-
-    // Visitor *polishPrintVisitor = new PolishPrintVisitor();
-    // Iterator * polinischIterator = polishPrintVisitor->CreateIterator();
-    // cout << "PRE:   ";
-    // polinischIterator->Traverse(term);
-
     Visitor* normalPrintVisitor = new NormalPrintVisitor();
     Iterator * normalIterator = normalPrintVisitor->CreateIterator();
     cout << endl << "IN:   ";

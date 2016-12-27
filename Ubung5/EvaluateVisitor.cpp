@@ -1,12 +1,12 @@
 #include "Header/EvaluateVisitor.h"
-#include "Header/PostorderIterator.h"
+#include "Header/ConditionalIterator.h"
 #include "Header/Variable.h"
 #include "Header/Assign.h"
 #include "Header/Const.h"
 
 
 EvaluateVisitor::EvaluateVisitor(){
-
+    _executeRight = true;
 }
 
 int EvaluateVisitor::GetResult(){
@@ -89,5 +89,5 @@ void EvaluateVisitor::VisitIf(If *term){
 }
 
 Iterator * EvaluateVisitor::CreateIterator() {
-    return new PostorderIterator(this);
+    return new ConditionalIterator(this);
 }
