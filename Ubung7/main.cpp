@@ -11,9 +11,5 @@ int main()
     facade->Interpret();
     facade->Print();
 
-    
-
-    
-
     getchar();
 }
