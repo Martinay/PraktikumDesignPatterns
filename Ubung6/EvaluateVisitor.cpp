@@ -1,8 +1,8 @@
 #include "Header/EvaluateVisitor.h"
-#include "Header/ConditionalIterator.h"
 #include "Header/Variable.h"
 #include "Header/Assign.h"
 #include "Header/Const.h"
+#include "Header/PostorderIterator.h"
 
 
 EvaluateVisitor::EvaluateVisitor(){
@@ -20,8 +20,7 @@ bool EvaluateVisitor::GetExecuteRight(){
 }
 
 void EvaluateVisitor::VisitSub(Sub *term){
-    if(_state != 3)
-        return;
+
     int rechts = _stack.top();
     _stack.pop();
     int links = _stack.top();
@@ -30,8 +29,7 @@ void EvaluateVisitor::VisitSub(Sub *term){
 }
 
 void EvaluateVisitor::VisitMul(Mul *term){
-    if(_state != 3)
-        return;
+
     int rechts = _stack.top();
     _stack.pop();
     int links = _stack.top();
@@ -40,8 +38,7 @@ void EvaluateVisitor::VisitMul(Mul *term){
 }
 
 void EvaluateVisitor::VisitAdd(Add *term){
-    if(_state != 3)
-        return;
+
     int rechts = _stack.top();
     _stack.pop();
     int links = _stack.top();
@@ -50,28 +47,24 @@ void EvaluateVisitor::VisitAdd(Add *term){
 }
 
 void EvaluateVisitor::VisitVariable(Variable *term){
-    if(_state != 2)
-        return;
+
     _stack.push(term->GetZahl());
 }
 
 void EvaluateVisitor::VisitConst(Const *term){
-    if(_state != 2)
-        return;
+
     _stack.push(term->GetConst());
 }
 
 void EvaluateVisitor::VisitAssign(Assign *term){
-    if(_state != 3)
-        return;
+
     term->GetLinks()->SetZahl(GetResult());
     _stack.pop();
     _stack.pop();
 }
 
 void EvaluateVisitor::VisitLess(Less *term){
-    if(_state != 3)
-        return;
+
     int rechts = _stack.top();
     _stack.pop();
     int links = _stack.top();
@@ -81,13 +74,12 @@ void EvaluateVisitor::VisitLess(Less *term){
 }
 
 void EvaluateVisitor::VisitIf(If *term){
-    if(_state != 2)
-        return;
+
     bool links = _stack.top();
     _stack.pop();
     _executeRight = links;
 }
 
 Iterator * EvaluateVisitor::CreateIterator() {
-    return new ConditionalIterator(this);
+    return new PostorderIterator(this);
 }

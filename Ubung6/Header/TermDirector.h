@@ -2,6 +2,7 @@
 #define TERMDIRECTOR_H
 
 #include <iostream>
+#include <vector>
 #include "Term.h"
 #include "Add.h"
 #include "Sub.h"
@@ -18,7 +19,7 @@ class TermDirector{
       Term* GetTerm();
       private:
         TermBuilder* _builder;
-        Term** _term;
+        vector<Term*> _term;
         void CreateTermArray();
 };
 
