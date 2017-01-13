@@ -12,7 +12,7 @@ int main()
 {
     ConcreteTermBuilder* builder = new ConcreteTermBuilder();
     TermDirector *director = new TermDirector(builder);
-    director->Create();
+    director->CreateBottomUp();
     Term *term = director->GetTerm();
 
     Visitor *normalPrintVisitor = new NormalPrintVisitor();

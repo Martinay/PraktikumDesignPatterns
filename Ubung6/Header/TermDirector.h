@@ -15,7 +15,8 @@ using namespace std;
 class TermDirector{
     public:
       TermDirector(TermBuilder* builder);
-      void Create();
+      void CreateTopDown();
+      void CreateBottomUp();
       Term* GetTerm();
       private:
         TermBuilder* _builder;

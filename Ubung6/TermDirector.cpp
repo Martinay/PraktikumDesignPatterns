@@ -4,9 +4,20 @@ TermDirector::TermDirector(TermBuilder* builder):
 _builder(builder){     
 }
 
-void TermDirector::Create(){
+void TermDirector::CreateTopDown(){
     CreateTermArray();
     for (int i = 0; i < 6; i++)
+    {
+        int indexLeft = 2 * i + 1;
+        _builder->AddLinkLeft(_term.at(i), _term.at(indexLeft));
+        int indexRight = 2 * i + 2;
+        _builder->AddLinkRight(_term.at(i), _term.at(indexRight));
+    }
+}
+
+void TermDirector::CreateBottomUp(){
+    CreateTermArray();
+    for (int i = 5; i >= 0; i--)
     {
         int indexLeft = 2 * i + 1;
         _builder->AddLinkLeft(_term.at(i), _term.at(indexLeft));
