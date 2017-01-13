@@ -1,24 +1,24 @@
-#include "Header/ConditionalIterator.h"
+#include "Header/InorderIterator.h"
 
-ConditionalIterator::ConditionalIterator(Visitor* visitor)
+InorderIterator::InorderIterator(Visitor* visitor)
 : Iterator(visitor){
 
 }
 
-void ConditionalIterator::Traverse(Term* term)
+void InorderIterator::Traverse(Term* term)
 {
     Term *tmp;
     if(tmp = term->GetLinks())
     {
-        Traverse(tmp);
         _visitor->SetState(1);
         term->Accept(_visitor);
+        Traverse(tmp);
     }
     
     _visitor->SetState(2);
     term->Accept(_visitor);
 
-    if((tmp = term->GetRechts()) && _visitor->GetExecuteRight())
+    if(tmp = term->GetRechts())
     {
         Traverse(tmp);
         _visitor->SetState(3);

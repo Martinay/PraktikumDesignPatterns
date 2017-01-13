@@ -11,5 +11,8 @@ mkdir -p out
 #./Ubung4/build.sh
 #echo "build Ubung 4 finished"
 
-./Ubung5/build.sh
-echo "build Ubung 5 finished"
+#./Ubung5/build.sh
+#echo "build Ubung 5 finished"
+
+./Ubung6/build.sh
+echo "build Ubung 6 finished"

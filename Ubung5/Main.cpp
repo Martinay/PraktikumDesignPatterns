@@ -21,7 +21,7 @@ int main()
     Variable * b = new Variable("b", 2);
     Variable * c = new Variable("c", 3);
     Variable * d = new Variable("d", 4);
-    Variable * x = new Variable("x", 2);
+    Variable * x = new Variable("x", 6);
 
     Term *termCalc = new Add(
         new Mul(
